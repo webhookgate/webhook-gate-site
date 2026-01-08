@@ -1,14 +1,28 @@
 // app/page.js
+
+import Link from "next/link";
+
 const PILOT_EMAIL = "pilot@webhookgate.com";
+
+const DOCS = {
+  retries: "/docs/why-retries-cause-duplicates",
+  exactlyOnce: "/docs/exactly-once-is-a-myth",
+  guarantee: "/docs/what-a-real-guarantee-requires",
+};
 
 export default function HomePage() {
   return (
     <main className="page">
       <header className="header">
         <div className="brand">WebhookGate</div>
-        <a className="headerLink" href={`mailto:${PILOT_EMAIL}`}>
-          Contact
-        </a>
+        <div className="headerLinks">
+          <Link className="headerLink" href="/docs">
+            Docs
+          </Link>
+          <a className="headerLink" href={`mailto:${PILOT_EMAIL}`}>
+            Contact
+          </a>
+        </div>
       </header>
 
       <section className="hero">
@@ -18,6 +32,12 @@ export default function HomePage() {
         </p>
         <p className="lead">
           WebhookGate guarantees your webhook handlers execute <strong>once</strong> — and only once.
+        </p>
+
+        <p className="p muted">
+          <Link className="inlineLink" href="/docs">
+            Read the technical explanation
+          </Link>
         </p>
 
         <div className="ctaRow">
@@ -122,6 +142,9 @@ export default function HomePage() {
         <div className="footerBrand">WebhookGate</div>
         <div className="footerText">Infrastructure for teams who take correctness seriously.</div>
         <div className="footerLinks">
+          <Link className="footerLink" href="/docs">
+            Docs
+          </Link>
           <a className="footerLink" href={`mailto:${PILOT_EMAIL}`}>
             {PILOT_EMAIL}
           </a>
